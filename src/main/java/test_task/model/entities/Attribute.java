@@ -11,11 +11,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.List;
 import java.util.UUID;
 
 @Table
-@Entity(name = "attribute")
+@Entity(name = "attributes")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -36,4 +38,7 @@ public class Attribute {
     @ManyToOne
     @JoinColumn(name = "product_type_id")
     private ProductType productType;
+
+    @OneToMany(mappedBy = "attribute")
+    private List<AttributeValue> attributeValues;
 }

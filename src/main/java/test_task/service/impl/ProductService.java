@@ -26,14 +26,28 @@ public class ProductService {
     private final ProductMapper productMapper;
 
     public List<ProductDto> getAllProductByType(UUID uuid) {
-        Optional<ProductType> optionalProductType = productTypeRepository.findById(uuid);
-        ProductType productType = optionalProductType.orElseThrow(
+        log.debug("Trying to find ProductType by uuid");
+        ProductType productType  = productTypeRepository.findById(uuid).orElseThrow(
                 () -> ServiceException.builder()
                         .message("No product with that type")
                         .errorCode(ErrorCode.NOT_EXISTS)
                         .build()
         );
+        log.debug("Product Type was found");
         List<Product> products = productRepository.findAllByProductType(productType);
+        log.debug("Found products with given product type");
         return productMapper.toListDto(products);
+    }
+
+    public ProductDto getProductByUUID(UUID uuid) {
+        log.debug("Finding product with uuid {}", uuid);
+        Product product = productRepository.findById(uuid).orElseThrow(
+                () -> ServiceException.builder()
+                        .message("No product with that uuid")
+                        .errorCode(ErrorCode.NOT_EXISTS)
+                        .build()
+        );
+        log.debug("Product was found");
+        return productMapper.toDto(product);
     }
 }

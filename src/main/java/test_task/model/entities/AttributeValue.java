@@ -5,10 +5,12 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import java.util.UUID;
@@ -26,12 +28,14 @@ public class AttributeValue {
     @Column(name = "id", columnDefinition = "uuid")
     private UUID id;
 
-    @ManyToOne
+    @Column(name = "val")
+    private String value;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "attribute_id")
     private Attribute attribute;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "product_id")
     private Product product;
-
-    @Column(name = "value")
-    private String value;
 }

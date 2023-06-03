@@ -20,10 +20,16 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping("/{uuid}")
-    public List<ProductDto> getProductByType(@PathVariable(name = "uuid") UUID uuid) {
+    @GetMapping("/type/{uuid}")
+    public List<ProductDto> getProductsByType(@PathVariable(name = "uuid") UUID uuid) {
         log.info("GET request to get products by type");
         return productService.getAllProductByType(uuid);
+    }
+
+    @GetMapping("/{uuid}")
+    public ProductDto getProductByUUID(@PathVariable(name = "uuid") UUID uuid) {
+        log.info("GET request to get product by uuid");
+        return productService.getProductByUUID(uuid);
     }
 
 }

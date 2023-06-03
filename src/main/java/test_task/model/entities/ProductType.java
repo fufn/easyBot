@@ -33,6 +33,6 @@ public class ProductType {
     @Column(name = "code")
     private String code;
 
-    @OneToMany
+    @OneToMany(mappedBy = "productType")
     private List<Attribute> attributes;
 }
