@@ -1,31 +1,33 @@
-## Clone the Repository: 
+## How to install the project:
+
+## 1) Clone the Repository: 
 Begin by cloning project repository from GitHub. Open a terminal or command prompt and run the following command:
 
 ```bash
 git clone <https://github.com/fufn/easyBot.git>
 ```
-## Navigate to Project Directory:
+## 2) Navigate to Project Directory:
 Change your current directory to the project folder:
 
 ```bash
 cd <project_folder>
 ```
 
-## Build the Project:
+## 3) Build the Project:
 Build the project using Maven.
 
 ```bash
 mvn clean install
 ```
 
-## Launch the Application:
+## 4) Launch the Application:
 Run the following command to start the Spring Boot application:
 
 ```bash
 mvn spring-boot:run
 ```
 
-## Access the Application:
+## 5) Access the Application:
 Once the application has started successfully, you can access it in your web browser by navigating to http://localhost:8080
 
 ## Postman Collection:
