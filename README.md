@@ -28,7 +28,7 @@ mvn spring-boot:run
 ```
 
 ## 5) Access the Application:
-Once the application has started successfully, you can access it in your web browser by navigating to http://localhost:8080
+Once the application has started successfully, you can access it in your web browser by navigating to http://localhost:8080/swagger-ui/index.html
 
 ## Postman Collection:
 If you would like to test the application you can access my collection
