@@ -2,7 +2,7 @@
 Begin by cloning project repository from GitHub. Open a terminal or command prompt and run the following command:
 
 ```bash
-git clone <repository_url>
+git clone <https://github.com/fufn/easyBot.git>
 ```
 ## Navigate to Project Directory:
 Change your current directory to the project folder:
