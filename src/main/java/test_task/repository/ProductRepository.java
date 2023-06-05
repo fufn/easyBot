@@ -12,4 +12,5 @@ import java.util.UUID;
 public interface ProductRepository extends JpaRepository<Product, UUID> {
 
     List<Product> findAllByProductType(ProductType productType);
+    Product findBySerialNumber(String sertialNumber);
 }

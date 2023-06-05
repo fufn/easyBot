@@ -13,7 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 public class AttributeDto {
 
-    private UUID id;
+    private UUID attributeId;
     private String name;
     private String code;
     private String value;

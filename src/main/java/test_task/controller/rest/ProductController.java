@@ -4,11 +4,15 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import test_task.model.dto.ProductDto;
+import test_task.payload.request.ProductCreation;
 import test_task.service.impl.ProductService;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -32,4 +36,9 @@ public class ProductController {
         return productService.getProductByUUID(uuid);
     }
 
+    @PostMapping
+    public ProductDto addProduct(@Valid @RequestBody ProductCreation productCreation){
+        log.info("POST request to add new product {}", productCreation);
+        return productService.addProduct(productCreation);
+    }
 }

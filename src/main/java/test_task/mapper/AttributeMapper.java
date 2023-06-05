@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class AttributeMapper {
     public AttributeDto toDto(AttributeValue attributeValue) {
         return AttributeDto.builder()
-                .id(attributeValue.getAttribute().getId())
+                .attributeId(attributeValue.getAttribute().getId())
                 .name(attributeValue.getAttribute().getName())
                 .code(attributeValue.getAttribute().getCode())
                 .value(attributeValue.getValue())
